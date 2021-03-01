@@ -5,12 +5,12 @@ public class YearCalendar {
     static String getDaysNames(int weekStartDay) {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.DAY_OF_WEEK, weekStartDay);
-        String names = "";
+        StringBuilder names = new StringBuilder("");
         for (int i = 0; i < 7; i += 1) {
-            names += new SimpleDateFormat("E").format(calendar.getTime()) + " ";
+            names.append(new SimpleDateFormat("E").format(calendar.getTime())).append(" ");
             calendar.add(Calendar.DATE, 1);
         }
-        return names;
+        return names.toString();
     }
 
     static int checkInputDay(int day) {
@@ -37,19 +37,19 @@ public class YearCalendar {
                 System.out.println(new SimpleDateFormat("MMM").format(calendar.getTime()));
                 System.out.println(daysNames);
             }
-            String dates = "";
+            StringBuilder dates = new StringBuilder();
             int countAdded = 0;
             do {
                 String tempDateString = String.valueOf(calendar.get(Calendar.DATE));
-                dates += tempDateString + " ".repeat(dateStringLength - tempDateString.length());
+                dates.append(tempDateString);
+                dates.append(" ".repeat(dateStringLength - tempDateString.length()));
                 countAdded += 1;
                 calendar.add(Calendar.DATE, 1);
             } while (calendar.get(Calendar.DAY_OF_WEEK) != weekStartDay && calendar.get(Calendar.DATE) != 1);
             if (countAdded != 7 && calendar.get(Calendar.DAY_OF_WEEK) == weekStartDay) {
-                for (int i = 0; i < (7 - countAdded); i += 1)
-                    dates = " ".repeat(dateStringLength) + dates;
+                dates.insert(0, " ".repeat(dateStringLength * (7 - countAdded)));
             }
-            System.out.println(dates);
+            System.out.println(dates.toString());
         }
     }
 }
