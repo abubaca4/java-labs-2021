@@ -13,17 +13,23 @@ public class YearCalendar {
         return names;
     }
 
+    static int checkInputDay(int day) {
+        day -= 1;
+        if (day > 6) {
+            day %= 7;
+        }
+        day += 1;
+        return day;
+    }
+
     public static void main(String[] args) {
         int weekStartDay = 2;
         if (args.length == 1) {
-            weekStartDay = Integer.parseUnsignedInt(args[0]) - 1;
-            if (weekStartDay > 6) {
-                weekStartDay %= 7;
-            }
-            weekStartDay += 1;
+            weekStartDay = checkInputDay(Integer.parseUnsignedInt(args[0]));
         }
         int currentYear = new GregorianCalendar().get(Calendar.YEAR);
         String daysNames = getDaysNames(weekStartDay);
+        int dateStringLength = daysNames.length() / 7;
         Calendar calendar = new GregorianCalendar(currentYear, 0, 1);
         while (calendar.get(Calendar.YEAR) == currentYear) {
             if (calendar.get(Calendar.DATE) == 1) {
@@ -35,16 +41,13 @@ public class YearCalendar {
             int countAdded = 0;
             do {
                 String tempDateString = String.valueOf(calendar.get(Calendar.DATE));
-                if (tempDateString.length() < 2) {
-                    tempDateString += " ";
-                }
-                dates += tempDateString + " ";
+                dates += tempDateString + " ".repeat(dateStringLength - tempDateString.length());
                 countAdded += 1;
                 calendar.add(Calendar.DATE, 1);
             } while (calendar.get(Calendar.DAY_OF_WEEK) != weekStartDay && calendar.get(Calendar.DATE) != 1);
             if (countAdded != 7 && calendar.get(Calendar.DAY_OF_WEEK) == weekStartDay) {
                 for (int i = 0; i < (7 - countAdded); i += 1)
-                    dates = "   " + dates;
+                    dates = " ".repeat(dateStringLength) + dates;
             }
             System.out.println(dates);
         }
