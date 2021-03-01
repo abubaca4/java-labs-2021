@@ -14,18 +14,16 @@ public class YearCalendar {
     }
 
     static int checkInputDay(int day) {
-        day -= 1;
-        if (day > 6) {
-            day %= 7;
+        if (day >= 7 && day <= 1) {
+            day = 2;
         }
-        day += 1;
         return day;
     }
 
     public static void main(String[] args) {
         int weekStartDay = 2;
         if (args.length == 1) {
-            weekStartDay = checkInputDay(Integer.parseUnsignedInt(args[0]));
+            weekStartDay = checkInputDay(Integer.parseInt(args[0]));
         }
         int currentYear = new GregorianCalendar().get(Calendar.YEAR);
         String daysNames = getDaysNames(weekStartDay);
