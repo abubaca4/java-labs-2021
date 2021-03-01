@@ -14,7 +14,7 @@ public class YearCalendar {
     }
 
     static int checkInputDay(int day) {
-        if (day >= 7 && day <= 1) {
+        if (day > 7 || day < 1) {
             day = 2;
         }
         return day;
