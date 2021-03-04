@@ -13,9 +13,9 @@ public class YearCalendar {
         return names.toString();
     }
 
-    static int checkInputDay(int day) {
+    static int checkInputDay(int day, int defaultDay) {
         if (day > 7 || day < 1) {
-            day = 2;
+            day = defaultDay;
         }
         return day;
     }
@@ -23,7 +23,7 @@ public class YearCalendar {
     public static void main(String[] args) {
         int weekStartDay = 2;
         if (args.length == 1) {
-            weekStartDay = checkInputDay(Integer.parseInt(args[0]));
+            weekStartDay = checkInputDay(Integer.parseInt(args[0]), weekStartDay);
         }
         int currentYear = new GregorianCalendar().get(Calendar.YEAR);
         String daysNames = getDaysNames(weekStartDay);
