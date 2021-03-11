@@ -1,4 +1,4 @@
-package FirstLab;
+package Lab2;
 
 import java.util.*;
 import java.text.SimpleDateFormat;

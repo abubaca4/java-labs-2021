@@ -1,4 +1,4 @@
-package SecondLab;
+package Lab3;
 
 import java.awt.*;
 
