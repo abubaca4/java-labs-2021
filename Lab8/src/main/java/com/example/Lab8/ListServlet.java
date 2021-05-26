@@ -1,4 +1,4 @@
-package app.servlet;
+package com.example.Lab8;
 
 import java.io.IOException;
 

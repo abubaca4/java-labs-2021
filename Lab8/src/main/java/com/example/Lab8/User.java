@@ -1,4 +1,4 @@
-package app.user;
+package com.example.Lab8;
 
 public class User {
     public User(String login, String password) {

@@ -1,4 +1,4 @@
-package app.servlet;
+package com.example.Lab8;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.user.UserBase;
-import app.user.User;
+import com.example.Lab8.UserBase;
+import com.example.Lab8.User;
  
 public class AddServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
