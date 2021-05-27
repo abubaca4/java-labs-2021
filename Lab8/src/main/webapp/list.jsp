@@ -25,11 +25,11 @@ List<User> users = UserBase.getInstance().getUserList();
 
         <div class="content">
             <table>
-            <% for(User user : users) { %>
                 <tr>
                     <th>имя пользователя</th>
                     <th>пароль</th>
                 </tr>
+            <% for(User user : users) { %>
                 <tr>
                     <td><%=user.getLogin() %></td>
                     <td><%=user.getPassword() %></td> 

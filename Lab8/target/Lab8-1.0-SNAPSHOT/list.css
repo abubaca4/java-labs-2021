@@ -1,6 +1,6 @@
 body {
 	font-family: 'Niramit', sans-serif;
-    background-color: whitesmoke;
+    background-color: green;
 }
 
 a {
@@ -44,7 +44,7 @@ table {
     margin-top: 5%;
     margin-bottom: 5%;
     border-spacing: 10vw 10px;
-    background-color: white;
+    background-color: green;
 }
 
 td {
